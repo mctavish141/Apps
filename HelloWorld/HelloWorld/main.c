@@ -1,6 +1,6 @@
 //
 //  main.c
-//  Apps
+//  HelloWorld
 //
 //  Created by Serhii Kopach on 26.03.16.
 //  Copyright (c) 2016 Serhii Kopach. All rights reserved.
