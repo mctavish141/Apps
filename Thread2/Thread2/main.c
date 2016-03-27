@@ -25,7 +25,8 @@ int main () {
     info.mutex = &mutex;
     info.number_pointer = &number;
     
-    fork ();
+    Randomize(&info);
+    NegativeWrite(&info);
     
     Randomize(&info);
     NegativeWrite(&info);
