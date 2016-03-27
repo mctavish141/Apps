@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 Serhii Kopach. All rights reserved.
 //
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <pthread.h>
 
 // sat_hello function
@@ -33,4 +33,32 @@ int main() {
     pthread_join(thread, NULL);
     
     return 0;
+}*/
+
+#include <stdio.h>
+#include <unistd.h>
+#include <pthread.h>
+
+int a = 0;
+pthread_mutex_t count_mutex;
+
+int main () {
+    int process_id = fork();
+    
+    if (process_id == 0) {
+        //printf("I am main process\n");
+        
+        pthread_mutex_lock(&count_mutex);
+        a = 3;
+        pthread_mutex_unlock(&count_mutex);
+    } else {
+        //printf("I am not main process.\n");
+        
+        
+        pthread_mutex_lock(&count_mutex);
+        a = 4;
+        pthread_mutex_unlock(&count_mutex);
+    }
+    
+    printf("%d Hello Sasha and Serezha\n", a);
 }
